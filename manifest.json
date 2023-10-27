@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "reader",
-    "description": "ocr using gpt4",
+    "name": "SnippyAI",
+    "description": "OCR using GPT-4V(ision)",
     "version": "1.0",
     "action": {
         "default_popup": "index.html"

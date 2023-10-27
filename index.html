@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reader</title>
+    <title>SnippyAI</title>
     <link rel="stylesheet" href="bulma.min.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     
-<div class="container">
+    <div class="popup">
+        <h1>SnippyAI</h1>
+        <p>This Chrome Extension is a GPT-4V based OCR. Press Snip to begin!</p>
+        <button class="button is-link mt-1 margin-left-30px" id="snip-button">Snip</button>
+        <button class="button is-danger mt-1 margin-left-20px" id="close-button">Close</button>
+    </div>
+
+<!-- <div class="container">
     <h1 class="title">reader</h1>
 </div>
 
 <div class="container m-3">
-    <button class="button is-success">Snip</button>
-</div>
-
+</div> -->
+<script src="popup.js"></script>
 </body>
 </html>
