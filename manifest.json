@@ -3,6 +3,13 @@
     "name": "SnippyAI",
     "description": "OCR using GPT-4V(ision)",
     "version": "1.0",
+    "permissions": ["tabs", "activeTabs", "<all_urls>", "scripting"],
+    "web_accessible_resources": [
+        {
+            "resources": ["css/fix.css"],
+            "matches": ["<all_urls>"]
+        }
+    ],
     "action": {
         "default_popup": "index.html"
     },
@@ -15,5 +22,13 @@
     "background": {
         "service_worker": "background.js",
         "type": "module"
-    }
+    },
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "css": ["css/fix.css"],
+          "js": ["content.js"]
+        }
+    ]
 }
