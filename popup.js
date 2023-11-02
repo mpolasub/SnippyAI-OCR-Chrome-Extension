@@ -1,25 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
     document.getElementById("close-button").addEventListener("click", function () {
         window.close();
     });
 
     document.getElementById("snip-button").addEventListener("click", () => {
-
-        // do query to add tab to sender parameter
-        chrome.runtime.sendMessage({ action: "captureScreenshot", tab }, (response) => {
-          console.log("Screenshot captured:", response.imgSrc);
+        chrome.runtime.sendMessage({name: "captureScreenshot"}, function(){
+            console.log("got that screenshot ya know");
         });
 
+        chrome.tabs.query({ active: true }, function (tabs) {
+            let tab = tabs[0];
+            chrome.scripting.executeScript({
+                target: { tabId: tab.id, allFrames: true },
+                files: ["content.js"],
+            });
+        });
     });
-
-
-    // document.getElementById("snip-button").addEventListener("click", function () {
-
-    //     //TODO: link to snipping tool
-
-        
-        
-    // });
 });
 
 

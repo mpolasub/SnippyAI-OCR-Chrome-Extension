@@ -1,4 +1,6 @@
 // create canvas element and append it to document bod
+console.log("content script")
+
 function saveAs(uri, filename) {
 
     var link = document.createElement('a');
@@ -21,7 +23,9 @@ var startY;
 var mouseX
 var mouseY
 
-chrome.runtime.sendMessage({msg: "capture"}, function(response) {
+chrome.runtime.sendMessage({msg: "captureScreenshot"}, function(response) {
+
+  console.log("send script")
 
   //alert(response.imgSrc);
   ledraw(response);
@@ -29,6 +33,8 @@ chrome.runtime.sendMessage({msg: "capture"}, function(response) {
 });
 
 function ledraw(response) {
+  console.log("ledraw")
+
     //Get a 2d context
     var w = window.open('','_new');
     var canvas = w.document.createElement('canvas');
@@ -39,6 +45,9 @@ function ledraw(response) {
     canvas.style.position = 'absolute';
     var ctx = canvas.getContext('2d');
     //use image to paint canvas
+
+    // EVERYTHING WORKS BESIDES capture/RESPONSE & SNIPPING TOOL
+
     var img = response.imgSrc; //place ur base64 encoded img here
     w.document.body.style.backgroundImage = 'url(' + img + ')';
 

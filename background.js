@@ -1,26 +1,13 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "captureScreenshot") {
-    chrome.scripting.executeScript({
-        target: { tabId: sender.tab.id, allFrames: true },
-        function: () => {
-          chrome.tabs.captureVisibleTab(
-            null,
-            {},
-            (dataUrl) => {
-              chrome.runtime.sendMessage({ imgSrc: dataUrl });
-            }
-          );
-        },
 
-    });
-
-    chrome.scripting.executeScript({
-        target: { tabId: sender.tab.id },
-        files: ["content.js"],
-    });
-
+            chrome.tabs.captureVisibleTab(function(screenshotDataUrl) {
+                    sendResponse({imgSrc:screenshotDataUrl});
+                }
+            );
+        return true;
     }
-  });
+});
 
 
         //  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
