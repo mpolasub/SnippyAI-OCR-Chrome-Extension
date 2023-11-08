@@ -11,3 +11,7 @@ Features:
 
 Why?: 
 - I wanted to copy notes from lecture slides and YouTube videos but found that other OCRs lack in speed, accuracy, and ease of access. I also wanted to try technology I've never used before and the idea of a Chrome extension sounds both challenging and fun.
+
+Image:
+
+![image](https://github.com/mpolasub/SnippyAI-OCR-Chrome-Extension/assets/63173206/9b43ba6f-434c-48ee-9132-933fb3e09fa8)
