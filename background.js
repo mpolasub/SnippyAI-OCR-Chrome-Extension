@@ -1,8 +1,12 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "captureScreenshot") {
+        console.log("response about to send?");
 
             chrome.tabs.captureVisibleTab(function(screenshotDataUrl) {
                     sendResponse({imgSrc:screenshotDataUrl});
+                    console.log("response sent");
+                    console.log("screenshotDataUrl: " + screenshotDataUrl);
+
                 }
             );
         return true;

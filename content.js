@@ -23,7 +23,7 @@ var startY;
 var mouseX
 var mouseY
 
-chrome.runtime.sendMessage({msg: "captureScreenshot"}, function(response) {
+chrome.runtime.sendMessage("captureScreenshot", function(response) {
 
   console.log("send script")
 
